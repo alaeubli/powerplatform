@@ -5,12 +5,6 @@ name: Release action
 on:
   release:
       types: [created]
-env:
-#edit your values here
-  BUILD_ENVIRONMENT_URL: ${{ secrets.ENVIRONMENT_URL }}
-  PRODUCTION_ENVIRONMENT_URL:  ${{ secrets.ENVIRONMENT_URL }}
-  CLIENT_ID: ${{ secrets.CLIENT_ID }}
-  TENANT_ID: ${{ secrets.TENANT_ID }}
 permissions:
   contents: write
 jobs:
@@ -19,11 +13,10 @@ jobs:
     with:
       #You can specify the solution name here
       solution_name: ALMLab
-      #Update your values here
-      BUILD_ENVIRONMENT_URL: ${{ env.BUILD_ENVIRONMENT_URL }}
-      PRODUCTION_ENVIRONMENT_URL: ${{ env.PRODUCTION_ENVIRONMENT_URL }}
-      CLIENT_ID: ${{ env.CLIENT_ID }}
-      TENANT_ID: ${{ env.TENANT_ID }}
     secrets:
       envSecret: ${{ secrets.POWERPLATFORMSPN  }}
+      BUILD_ENVIRONMENT_URL: ${{ secrets.ENVIRONMENT_URL }}
+      PRODUCTION_ENVIRONMENT_URL:  ${{ secrets.ENVIRONMENT_URL }}
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      TENANT_ID: ${{ secrets.TENANT_ID }}
       
