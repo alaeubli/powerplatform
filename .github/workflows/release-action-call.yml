@@ -12,7 +12,7 @@ jobs:
     uses: ./.github/workflows/release-solution-with-inputs.yml
     with:
       #You can specify the solution name here
-      solution_name: ALMLab
+      solution_name: ALMLabProd
     secrets:
       envSecret: ${{ secrets.POWERPLATFORMSPN  }}
       BUILD_ENVIRONMENT_URL: ${{ secrets.ENVIRONMENT_URL }}
