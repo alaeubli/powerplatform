@@ -62,10 +62,36 @@
               "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
             }
           }
+        },
+        "Get_forecast_for_today_2": {
+          "runAfter": {
+            "Get_forecast_for_today": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4bc0f26a-c915-4e3b-81da-e6a718266a48"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_msnweather",
+              "operationId": "TodaysForecast",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_msnweather"
+            },
+            "parameters": {
+              "Location": "Kirchheim unter TEck, Germany ",
+              "units": "I"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
         }
       }
     },
-    "templateName": null
+    "templateName": ""
   },
   "schemaVersion": "1.0.0.0"
 }
